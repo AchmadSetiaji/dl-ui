@@ -138,6 +138,9 @@
         </div>
         <!-- End of Modals Button -->
 
+        <br>
+        <br>
+
         <!-- Collection of warping beam production -->
         <div class="row" style="white-space: nowrap;">
           <au-collection items.bind="data.DailyOperationBeamProducts" error.bind="error.DailyOperationBeamProducts"
@@ -192,8 +195,8 @@
 
       <!-- History -->
       <div role="tabpanel" class="tab-pane fade" id="history">
-        <au-collection items.bind="data.DailyOperationLoomHistories" error.bind="error.DailyOperationLoomHistories"
-          columns.bind="warpingHistory" options.bind="loomHistoryTableOptions" read-only.bind="readOnly"
+        <au-collection items.bind="data.DailyOperationWarpingHistories" error.bind="error.DailyOperationWarpingHistories"
+          columns.bind="warpingHistory" options.bind="dailyOperationWarpingHistories" read-only.bind="readOnly"
           item-template="modules/weaving/daily-operation-warping/template/history-items">
         </au-collection>
       </div>

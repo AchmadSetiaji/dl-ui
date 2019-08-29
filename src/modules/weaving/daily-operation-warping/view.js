@@ -13,16 +13,15 @@ export class View {
     this.dialog = dialog;
     this.data = {};
     this.error = {};
+    this.sendData = {
+      Id: "",
+      BeamId: "",
+      ShiftId: "",
+      DateOperation: "",
+      TimeOperation: "",
+      OperatorId: ""
+    };
   }
-
-  sendData = {
-    Id: "",
-    BeamId: "",
-    ShiftId: "",
-    DateOperation: "",
-    TimeOperation: "",
-    OperatorId: ""
-  };
 
   bind(context) {
     this.context = context;
@@ -44,12 +43,12 @@ export class View {
   }
 
   dailyOperationBeamProducts = [
-    { header: "Tanggal", value: "DateOperation" },
-    { header: "Waktu", value: "TimeOperation" },
-    { header: "Shift", value: "ShiftName" },
-    { header: "Operator", value: "BeamOperatorName" },
-    { header: "Group", value: "BeamOperatorGroup" },
-    { header: "Status", value: "OperationStatus" }
+    { header: "No Beam", value: "BeamNumber" },
+    { header: "Panjang", value: "Length" },
+    { header: "Tention", value: "Tention" },
+    { header: "Speed", value: "Speed" },
+    { header: "PressRoll", value: "PressRoll" },
+    { header: "Beam Status", value: "BeamStatus" }
   ];
 
   warpingHistory = [
@@ -68,7 +67,7 @@ export class View {
   ];
 
   back() {
-    this.list();
+    this.router.navigateToRoute("list");
   }
 
   start() {
