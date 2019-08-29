@@ -15,6 +15,15 @@ export class View {
     this.error = {};
   }
 
+  sendData = {
+    Id: "",
+    BeamId: "",
+    ShiftId: "",
+    DateOperation: "",
+    TimeOperation: "",
+    OperatorId: ""
+  };
+
   bind(context) {
     this.context = context;
     this.data = this.context.data;

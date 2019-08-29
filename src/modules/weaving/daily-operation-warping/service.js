@@ -3,11 +3,11 @@ import { Container } from "aurelia-dependency-injection";
 import { Config } from "aurelia-api";
 const serviceUri = 'weaving/daily-operations-warping';
 const entryProcess = 'entry-process-operation';
-const startProcess = 'start-process';
-const pauseProcess = 'pause-process';
-const resumeProcess = 'resume-process';
-const finishProcess = 'finish-process';
-const finishDailyOperation = 'finish-process-operation'; 
+const startProcess = 'weaving/daily-operations-warping/start-process';
+const pauseProcess = 'weaving/daily-operations-warping/pause-process';
+const resumeProcess = 'weaving/daily-operations-warping/resume-process';
+const finishProcess = 'weaving/daily-operations-warping/finish-process';
+const finishDailyOperation = 'weaving/daily-operations-warping/finish-process-operation'; 
 
 export class Service extends RestService {
     constructor(http, aggregator, config, endpoint) {
