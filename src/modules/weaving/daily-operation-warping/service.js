@@ -3,7 +3,7 @@ import { Container } from "aurelia-dependency-injection";
 import { Config } from "aurelia-api";
 const serviceUri = 'weaving/daily-operations-warping';
 const entryProcess = 'entry-process-operation';
-const startProcess = 'weaving/daily-operations-warping/start-process';
+const startProcess = 'start-process';
 const pauseProcess = 'weaving/daily-operations-warping/pause-process';
 const resumeProcess = 'weaving/daily-operations-warping/resume-process';
 const finishProcess = 'weaving/daily-operations-warping/finish-process';

@@ -33,6 +33,18 @@
 
             <div class="row" style="white-space: nowrap;">
                 <div class="col-md-2">
+                    <textbox label="Beam Warping" read-only="true"></textbox>
+                </div>
+                <div class="col-md-2">
+                    <au-autocomplete placeholder="Cari No Beam" value.bind="Beam"
+                        error.bind="error.Beam" read-only.bind="readOnly" options.bind="customOptions"
+                        loader.bind="Beams" text="Number">
+                    </au-autocomplete>
+                </div>
+            </div>
+
+            <div class="row" style="white-space: nowrap;">
+                <div class="col-md-2">
                     <textbox label="Operator" read-only="true"></textbox>
                 </div>
                 <div class="col-md-2">

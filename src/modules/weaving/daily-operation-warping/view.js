@@ -73,21 +73,43 @@ export class View {
   start() {
     $("#Mulai").modal('hide');
     this.error = {};
+    var errorIndex = 0;
 
-    this.service
-      .updateForStartProcess(this.data)
-      .then(result => {
-        this.data.LoomHistory = [];
+    if (this.data.Id) {
 
-        if (result.length > 0) {
+      this.sendData.Id = this.data.Id;
+      this.sendData.BeamId = this.data.BeamId;
+      this.sendData.ShiftId = this.data.ShiftId;
+      this.sendData.DateOperation = this.data.StartDate;
+      this.sendData.TimeOperation = this.data.StartTime;
+      this.sendData.OperatorId = this.data.OperatorId;
 
+
+      if (this.data.BeamId) {
+        console.log(this.data)
+        if (this.data.BeamType != "Warping") {
+          errorIndex++;
+          this.error.Beam = "Tipe Beam : " + this.data.Beam.Type;
         }
+      }
 
-        this.data.LoomHistory = result;
-      }).catch(e => {
-        var errorStatus = e.Status;
-        this.dialog.errorPrompt(errorStatus);
-      });
+      if (errorIndex == 0) {
+        this.service
+          .updateForStartProcess(this.sendData)
+          .then(result => {
+            this.data.DailyOperationWarpingHistories = [];
+            this.data.DailyOperationBeamProducts = [];
+
+            this.data.DailyOperationWarpingHistories = result.DailyOperationWarpingHistories;
+            this.data.DailyOperationBeamProducts = result.DailyOperationBeamProducts;
+
+          }).catch(e => {
+            var errorStatus = e.Status;
+            this.dialog.errorPrompt(errorStatus);
+          });
+      }
+    }
+
   }
 
   stop() {

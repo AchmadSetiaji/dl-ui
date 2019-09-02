@@ -3,6 +3,8 @@ import { Router } from "aurelia-router";
 import { Service } from "../../service";
 import moment from "moment";
 var Operator = require("../../../../../loader/weaving-operator-loader");
+//stock card beam
+var Beam = require("../../../../../loader/weaving-beam-loader");
 
 @inject(Service, Router)
 export class StartForm {
@@ -38,13 +40,16 @@ export class StartForm {
         return Operator;
     }
 
+    get Beams() {
+        return Beam;
+    }
+
     //bindable method
     StartDateChanged(newValue) {
         this.data.StartDate = moment(newValue).utcOffset("+07:00").format();
     }
 
     startOperatorChanged(newValue) {
-        debugger
         if (newValue) {
 
             this.data.OperatorId = newValue.Id;
@@ -52,10 +57,9 @@ export class StartForm {
     }
 
     BeamChanged(newValue) {
-
         if (newValue) {
-
-            this.data.BeamId = newvalue.Id;
+            this.data.BeamId = newValue.Id;
+            this.data.BeamType = newValue.Type;
         }
     }
 
